@@ -1,0 +1,36 @@
+[
+    {
+        "image":"",
+        "username":"",
+        "bio":"",
+        "email":"",
+        "password":"",
+        "status": 200,
+        "message": {
+            "user": {
+                "email": "#(userCreds.email)",
+                "username": "#(userCreds.username)",
+                "bio": null,
+                "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+                 "token": "#string" 
+            }
+        }
+    },
+    {
+        "image":"",
+        "username":"karate2@araj",
+        "bio":"",
+        "email":"karate2@araj.com",
+        "password":"",
+        "status": 200,
+        "message": {
+            "user": {
+                "email": "karate2@araj.com",
+                "username":"karate2@araj",
+                "bio": null,
+                "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
+                 "token": "#string" 
+            }
+        }
+    }
+]

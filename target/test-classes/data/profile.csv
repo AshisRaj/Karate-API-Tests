@@ -1,0 +1,3 @@
+image,username,bio,email,password,status,message
+"",karate3@araj,"",karate3@araj.com,"",500,Unique constraint failed on the fields: (`email`)
+"",karate3@araj,"",karate2@araj.com,"",500,Unique constraint failed on the fields: (`username`)
