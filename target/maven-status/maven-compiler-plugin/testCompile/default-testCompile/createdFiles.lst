@@ -1,4 +1,0 @@
-helpers\MySQLDbHandler.class
-helpers\DataGenerator.class
-helpers\MongoDBHandler.class
-conduitApp\ConduitTest.class
