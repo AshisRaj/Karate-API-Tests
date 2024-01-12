@@ -8,8 +8,9 @@
         "status": 200,
         "message": {
             "user": {
-                "email": "#(userCreds.email)",
-                "username": "#(userCreds.username)",
+                "id": "#number",
+                "email": "#(envData.superUser.email)",
+                "username": "#(envData.superUser.username)",
                 "bio": null,
                 "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
                  "token": "#string" 
@@ -18,15 +19,16 @@
     },
     {
         "image":"",
-        "username":"karate2@araj",
+        "username": "#(envData.superUser.username)",
         "bio":"",
-        "email":"karate2@araj.com",
+        "email": "#(envData.superUser.email)",
         "password":"",
         "status": 200,
         "message": {
             "user": {
-                "email": "karate2@araj.com",
-                "username":"karate2@araj",
+                "id": "#number",
+                "email": "#(envData.superUser.email)",
+                "username": "#(envData.superUser.username)",
                 "bio": null,
                 "image": "https://api.realworld.io/images/smiley-cyrus.jpeg",
                  "token": "#string" 

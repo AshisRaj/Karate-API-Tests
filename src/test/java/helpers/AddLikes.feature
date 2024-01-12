@@ -1,7 +1,7 @@
 Feature: Likes
 
 Background: Before Hook
-    Given url baseUrl
+    Given url envConfig.baseUrl
 
 Scenario: Add Likes
     Given path 'api/articles', slug, 'favorite'

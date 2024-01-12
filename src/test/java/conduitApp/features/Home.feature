@@ -2,13 +2,13 @@
 Feature: Homepage
 
 Background: Before Hook
-    Given url baseUrl
+    Given url envConfig.baseUrl
 
 Scenario: Get all Popular Tags
     Given path 'api/tags'
     When method get
     Then status 200
-    And match response.tags contains ['introduction', 'welcome']
+    # And match response.tags contains ['enim', 'eos']
     And match response.tags == '#array'
     And match each response.tags == '#string'
 

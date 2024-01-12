@@ -1,9 +1,9 @@
 Feature: Auth Token
 
 Scenario: Define URL
-  Given url baseUrl
+  Given url envConfig.baseUrl
   Given path 'api/users/login'
-  And request {"user": { "email": "#(userCreds.email)", "password": "#(userCreds.password)" }}
+  And request {"user": { "email": "#(envData.superUser.email)", "password": "#(envData.superUser.password)" }}
   When method post
   Then status 200
   And match response.user contains {'token': '#string'}

@@ -1,7 +1,7 @@
 Feature: Comment
 
 Background: Before Hook
-    Given url baseUrl
+    Given url envConfig.baseUrl
 
 Scenario: Add Comment
     * def commentRequestBody = read('classpath:data/comment.json')

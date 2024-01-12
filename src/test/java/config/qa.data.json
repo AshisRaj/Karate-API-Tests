@@ -1,0 +1,12 @@
+{
+    "superUser": {
+        "username": "karate102@araj",
+        "email": "karate102@araj.com",
+        "password": "karate102"
+    },
+    "adminUser": {
+        "username": "karate103@araj",
+        "email": "karate103@araj.com",
+        "password": "karate103"
+    }
+}

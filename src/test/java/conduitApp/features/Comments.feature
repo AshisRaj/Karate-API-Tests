@@ -6,7 +6,7 @@ Background: Before Hook
     * def timeValidator = read('classpath:helpers/TimeValidator.js')
     * def commentRequestBody = read('classpath:data/comment.json')
     * set commentRequestBody.comment.body = testDataGenerator.getRandomComment().body
-    Given url baseUrl
+    Given url envConfig.baseUrl
 
 Scenario: Comment Articles
     # Step 1: Get articles of the global feed
