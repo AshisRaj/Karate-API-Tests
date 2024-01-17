@@ -4,6 +4,7 @@ Feature: Sign In
 Background: Before Hook
   Given url envConfig.baseUrl
 
+@debug
 Scenario: Login
   Given path 'api/users/login'
   And request {"user": { "email": "karate102@araj.com", "password": "karate102" }}

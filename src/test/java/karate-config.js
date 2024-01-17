@@ -8,7 +8,7 @@ function fn() {
     karate.log('karate.env system property was: ', env);
 
     var envConfig = read(`classpath:config/karate-config-${env}.json`);
-    var envData = read(`classpath:config/${env}.data.json`);
+    var envData = read(`classpath:data/env/${env}.data.json`);
     
     var config = {
         env: env,
@@ -16,9 +16,14 @@ function fn() {
         envData: envData
     }
 
+    // Example generating OAuth token
     var accessToken = karate.callSingle('classpath:helpers/CreateToken.feature', config).authToken
     karate.configure('headers', {Authorization: 'Token ' + accessToken})
     
+    // Example generating Basic Auth token
+    var headerBasicAuth = karate.callSingle('classpath:helpers/BasicAuth.js', { username: 'john', password: 'secret' })
+    karate.log('Basic Auth Token: ', headerBasicAuth);
+
     var testDataGenerator = Java.type('helpers.DataGenerator')
     config.testDataGenerator =  testDataGenerator
  
