@@ -1,10 +1,10 @@
-@ignore
+# @ignore
 Feature: DB
 
 Background: Before Hook
     * def mysqlDbHandler = Java.type('helpers.MySQLDbHandler')
     * def mongoDbHandler = Java.type('helpers.MongoDBHandler')
-    * def config = { username: 'root', password: 'root123', url: "jdbc:mysql://localhost:3306/test", driverClassName: "com.mysql.cj.jdbc.Driver" }
+    * def config = karate.merge(envConfig.mysqlDBConfig, { url: "jdbc:mysql://localhost:3306/test", driverClassName: "com.mysql.cj.jdbc.Driver" }) 
     * def DbUtils = Java.type('helpers.DbUtils')
     * def db = new DbUtils(config)
 
@@ -23,6 +23,7 @@ Scenario: MongoDb: Get Document
     * def job = mongoDbHandler.getDocuments(envConfig.mongoDBConfig, "{'job': 'Test Automation Architect'}")
     * match job == "#array"
 
+@try
 Scenario: DbUtils: Read Rows
 # since the DbUtils returns a Java List (of Map-s), it becomes normal JSON here!
 # which means that you can use the full power of Karate's 'match' syntax

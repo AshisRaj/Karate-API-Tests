@@ -14,13 +14,8 @@ public class DbUtils {
     private final JdbcTemplate jdbcTemplate;
 
     public DbUtils(Map<String, Object> config) {
-        System.out.println(config.get("url"));
-        System.out.println(config.get("username"));
-        System.out.println(config.get("password"));
-        System.out.println(config.get("driverClassName"));
-
         String url = (String) config.get("url");
-        String username = (String) config.get("username");
+        String username = (String) config.get("user");
         String password = (String) config.get("password");
         String driver = (String) config.get("driverClassName");
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
