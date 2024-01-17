@@ -14,6 +14,7 @@
         <maven.surefire.version>3.0.0</maven.surefire.version>
         <karate.version>1.4.1</karate.version>
         <gatling.plugin.version>4.7.0</gatling.plugin.version>
+        <spring.version>5.3.28</spring.version>
     </properties>    
 
     <dependencies>         
@@ -22,6 +23,11 @@
             <artifactId>karate-junit5</artifactId>
             <version>${karate.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
         <dependency>
