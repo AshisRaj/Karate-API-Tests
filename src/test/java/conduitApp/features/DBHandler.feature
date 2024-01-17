@@ -1,4 +1,4 @@
-# @ignore
+@ignore
 Feature: DB
 
 Background: Before Hook
@@ -23,7 +23,6 @@ Scenario: MongoDb: Get Document
     * def job = mongoDbHandler.getDocuments(envConfig.mongoDBConfig, "{'job': 'Test Automation Architect'}")
     * match job == "#array"
 
-@try
 Scenario: DbUtils: Read Rows
 # since the DbUtils returns a Java List (of Map-s), it becomes normal JSON here!
 # which means that you can use the full power of Karate's 'match' syntax
