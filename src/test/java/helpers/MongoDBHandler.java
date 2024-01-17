@@ -1,5 +1,7 @@
 package helpers;
 
+import java.util.Map;
+
 import org.bson.Document;
 
 import com.mongodb.client.FindIterable;
@@ -12,8 +14,7 @@ import net.minidev.json.JSONArray;
  
 public class MongoDBHandler {
 
-    public static JSONArray insertDocuments(String connectionString, String document) {
-        Document jsonDoc = Document.parse(connectionString);        
+    public static JSONArray insertDocuments(Map<String, Object> jsonDoc, String document) {
         MongoClient mongoClient = MongoClients.create("mongodb://" + jsonDoc.get("host") + ":" + jsonDoc.get("port"));
         MongoDatabase mongoDatabase = mongoClient.getDatabase(jsonDoc.get("database").toString());
         MongoCollection<Document> collection = mongoDatabase.getCollection(jsonDoc.get("collection").toString()); 
@@ -24,18 +25,17 @@ public class MongoDBHandler {
 		//Insert document into collection 
 		collection.insertOne(query); 
 
-        JSONArray jsonArray = getDocuments(connectionString, document);
+        JSONArray jsonArray = getDocuments(jsonDoc, document);
         return jsonArray;
     }
 
-    public static JSONArray getDocuments(String connectionString, String query) {
-        FindIterable<Document> result = getDocumentsAsIterable(connectionString, query);
+    public static JSONArray getDocuments(Map<String, Object> jsonDoc, String query) {
+        FindIterable<Document> result = getDocumentsAsIterable(jsonDoc, query);
         JSONArray jsonArray = getJsonFromIterableDocument(result);
         return jsonArray;
     }
 
-    public static FindIterable<Document> getDocumentsAsIterable(String connectionString, String query) {
-        Document jsonDoc = Document.parse(connectionString);        
+    public static FindIterable<Document> getDocumentsAsIterable(Map<String, Object> jsonDoc, String query) {
         MongoClient mongoClient = MongoClients.create("mongodb://" + jsonDoc.get("host") + ":" + jsonDoc.get("port"));
         MongoDatabase mongoDatabase = mongoClient.getDatabase(jsonDoc.get("database").toString());
         MongoCollection<Document> collection = mongoDatabase.getCollection(jsonDoc.get("collection").toString()); 

@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Map;
 
 import org.bson.Document;
 
@@ -13,9 +14,8 @@ import net.minidev.json.JSONObject;
 
 public class MySQLDbHandler {
 
-    public static int addNewJobWithName(String connectionString, String jobName) {
+    public static int addNewJobWithName(Map<String, Object> jsonDoc, String jobName) {
         int jobAdded = 0;
-        Document jsonDoc = Document.parse(connectionString);
         try(Connection connect = DriverManager.getConnection("jdbc:mysql://" + jsonDoc.get("host") + ":" + jsonDoc.get("port") + "/" + jsonDoc.get("database"), jsonDoc.get("user").toString(), jsonDoc.get("password").toString())) {
             jobAdded = connect.createStatement()
                 .executeUpdate("INSERT INTO jobs(job_desc, min_level, max_level) VALUES ('"+jobName+"', '80', '120')");
@@ -26,8 +26,7 @@ public class MySQLDbHandler {
         return jobAdded;
     }
 
-    public static JSONArray getMinAndMaxLevelsForJob(String connectionString, String jobName) {
-        Document jsonDoc = Document.parse(connectionString);
+    public static JSONArray getMinAndMaxLevelsForJob(Map<String, Object> jsonDoc, String jobName) {
         JSONArray jsonArray = null;
 
         try(Connection connect = DriverManager.getConnection("jdbc:mysql://" + jsonDoc.get("host") + ":" + jsonDoc.get("port") + "/" + jsonDoc.get("database"), jsonDoc.get("user").toString(), jsonDoc.get("password").toString())) {
